@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="notepad.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-bind:style="{color: checked}">Абзац</p>
+    <input type="checkbox" value="foo" v-model="checked" true-value="red" false-value="black">
+</div>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            checked: true,
+        },
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="checklist.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(task, index) in tasks" v-bind:class="[task.id]">
+            <p>
+                <input type="checkbox" v-model="task.id" true-value="active" false-value="" v-if="task.hide">
+                <span v-on:click.left="showItem(index)" v-if="task.hide">
+                {{ task.name }} - {{ task.price }}
+                </span>
+                <button v-on:click="removeItem(index)" v-if="task.hide">X</button>
+            </p>
+            <p v-on:keyup.enter="renameItem(index)" v-if="task.show">
+                <input v-model="showItemName">
+                <input v-model="showItemPrice">
+            </p>
+        </li>
+    </ul>
+    <span class="btn">
+    <input v-model="newItemName" v-on:keyup.enter="addItem">
+    <input v-model="newItemPrice" v-on:keyup.enter="addItem">
+    <button v-on:click="addItem">Добавить</button>
+    </span>
+</div>
+<script src="checklist.js"></script>
+</body>
+</html>
+
+
